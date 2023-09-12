@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Switch, Route, Router } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Pricing from './components/Pricing';
@@ -11,17 +11,18 @@ const theme = createTheme({
 
 const customClassName = 'ma-custom'; // Customize the class name prefix here
 
-export default function App() {
+export default function App({ history }) {
+  console.log("history", history)
   return (
     <div className={customClassName}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/" element={<Landing />} />
-          </Routes>
-        </BrowserRouter>
+        <Router history={history}>
+          <Switch>
+            <Route exact path="/pricing" component={Pricing} />
+            <Route path="/" component={Landing} />
+          </Switch>
+        </Router>
       </ThemeProvider>
     </div>
   );
