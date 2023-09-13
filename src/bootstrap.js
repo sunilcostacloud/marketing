@@ -5,10 +5,14 @@ import App from "./App";
 import { createMemoryHistory, createBrowserHistory } from 'history';
 
 // Mount function to start up the app
-const mount = (el, { onNavigate, defaultHistory }) => {
-    const history = defaultHistory || createMemoryHistory();
+const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+    const history =
+        defaultHistory ||
+        createMemoryHistory({
+            initialEntries: [initialPath],
+        });
 
-    if (onNavigate) {
+    if (onNavigate) { // this check is essential to work marketing app in isolation
         history.listen(onNavigate);
     }
 
@@ -23,7 +27,6 @@ const mount = (el, { onNavigate, defaultHistory }) => {
             }
         },
     };
-
 };
 
 // If we are in development and in isolation,
