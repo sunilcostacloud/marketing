@@ -16,12 +16,6 @@ spec:
       volumes:
         - name: my-volume
           emptyDir: {}
-        - name: host-volume
-          persistentVolumeClaim:
-            claimName: registry-test-frontend-pvc
-        - name: hosts-volume
-          persistentVolumeClaim:
-            claimName: registry-test-frontend-data-pvc
       containers:
         - resources: {}
           terminationMessagePath: /dev/termination-log
@@ -36,10 +30,6 @@ spec:
           volumeMounts:
             - name: my-volume
               mountPath: /data
-            - name: host-volume
-              mountPath: /etc/nginx/conf.d/
-            - name: hosts-volume
-              mountPath: /usr/share/nginx/html/eoffice/
           terminationMessagePolicy: File
           image: "registry.ocp4.pacosta.com:8443/test/frontendeoffice:8"
       restartPolicy: Always
