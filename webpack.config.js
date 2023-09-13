@@ -7,7 +7,7 @@ module.exports = (_, argv) => ({
     publicPath:
       argv.mode === "development"
         ? "http://localhost:8081/"
-        : "https://marketing-microfrontend.apps.ocp4.pacosta.com/eoffice/",
+        : "http://marketing-microfrontend.apps.ocp4.pacosta.com/eoffice/",
   },
 
   resolve: {
