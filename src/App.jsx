@@ -4,6 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Pricing from './components/Pricing';
 import Landing from './components/Landing';
+import PageNotFound from './components/PageNotFoundApp';
 
 const theme = createTheme({
   // Add your theme configuration here
@@ -20,8 +21,9 @@ export default function App({ history }) {
         <CssBaseline />
         <Router history={history}>
           <Switch>
+            <Route exact path="/" component={Landing} />
             <Route exact path="/pricing" component={Pricing} />
-            <Route path="/" component={Landing} />
+            <Route component={PageNotFound} />
           </Switch>
         </Router>
       </ThemeProvider>

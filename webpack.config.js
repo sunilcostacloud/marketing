@@ -58,7 +58,12 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "marketing",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        page_not_found:
+          argv.mode === "development"
+            ? "page_not_found@http://localhost:8084/remoteEntry.js"
+            : "page_not_found@http://pagenotfound-microfrontend.apps.ocp4.pacosta.com/eoffice/remoteEntry.js",
+      },
       exposes: {
         './MarketingApp': './src/bootstrap',
       },
