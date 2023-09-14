@@ -13,6 +13,7 @@ const customClassName = 'ma-custom'; // Customize the class name prefix here
 
 export default function App({ history }) {
   // console.log("history", history)
+  console.log("App Page")
   return (
     <div className={customClassName}>
       <ThemeProvider theme={theme}>

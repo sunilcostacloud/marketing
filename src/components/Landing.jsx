@@ -79,6 +79,8 @@ const Landing = () => {
         },
     };
 
+    console.log("Landing Page")
+
     return (
         <>
             <main>

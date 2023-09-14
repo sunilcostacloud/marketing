@@ -80,9 +80,12 @@ const footers = [
     },
 ];
 
+
 const Pricing = () => {
 
     const theme = useTheme();
+
+    console.log("Pricing Page")
 
     const classes = {
         '@global': {
