@@ -6,8 +6,8 @@ module.exports = (_, argv) => ({
   output: {
     publicPath:
       argv.mode === "development"
-        ? "http://localhost:8081/"
-        : "http://marketing-microfrontend.apps.ocp4.pacosta.com/eoffice/",
+        ? "http://localhost:8081"
+        : "http://marketing-microfrontend.apps.ocp4.pacosta.com",
   },
 
   resolve: {
@@ -62,7 +62,7 @@ module.exports = (_, argv) => ({
         page_not_found:
           argv.mode === "development"
             ? "page_not_found@http://localhost:8084/remoteEntry.js"
-            : "page_not_found@http://pagenotfound-microfrontend.apps.ocp4.pacosta.com/eoffice/remoteEntry.js",
+            : "page_not_found@http://pagenotfound-microfrontend.apps.ocp4.pacosta.com/remoteEntry.js",
       },
       exposes: {
         './MarketingApp': './src/bootstrap',
